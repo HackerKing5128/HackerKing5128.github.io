@@ -1,16 +1,280 @@
 body {
-    background-color: #f0f8ff;
+    background: linear-gradient(135deg, #000428, #004e92); /* Vibrant cyber color scheme */
+    color: #ffffff;
     font-family: 'Arial', sans-serif;
-    transition: background-color 0.5s ease;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-h1 {
-    text-decoration: wavy;
-    animation: wave 2s infinite;
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    flex-wrap: wrap; /* Allow nav items to wrap if necessary */
 }
 
-@keyframes wave {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(10px); }
-    100% { transform: translateX(0); }
+/* Logo stays at the left */
+nav .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #00ffcc;
+    text-transform: uppercase;
+    flex: 1;
+}
+
+/* Navbar links */
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00ffcc;
+}
+
+/* Hamburger menu for smaller screens */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 2em;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 80px; /* Add space for the fixed navbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 10%;
+    background-image: url('pngtree-futuristic-neon-technology-city.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    color: #00ffcc;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.hero-content button {
+    background: #00ffcc;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.hero-content button:hover {
+    background: #009e99;
+    transform: scale(1.1);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 280px;
+    box-shadow: 0 5px 20px rgb(88 69 85);
+    animation: slideIn 2s;
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 10%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.about-section h2 {
+    font-size: 3em;
+    color: #00ffcc;
+}
+
+.about-section img {
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Mobile and Tablet Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px; /* Increase padding to clear navbar overlap */
+    }
+
+    /* Navbar adjustments for smaller screens */
+    nav {
+        flex-direction: row-reverse;
+        padding: 15px 5%; /* Reduce padding for smaller screens */
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        padding-top: 10px;
+        width: 100%;
+        position: absolute;
+        top: 77px;
+        left: 0;
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    /* Show the menu when it is active */
+    nav ul.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+
+    nav .logo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .about-section {
+        padding: 30px 10%;
+    }
+
+    .about-section h2 {
+        font-size: 2.5em;
+    }
+
+    .social-icons a {
+        font-size: 1.2em;
+    }
+}
+
+/* For smaller mobile screens */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .about-section h2 {
+        font-size: 2em;
+    }
+
+    .hero-image img {
+        border-radius: 20px;
+    }
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 20px 10%;
+    background: #001f3f;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00ffcc;
+    transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
